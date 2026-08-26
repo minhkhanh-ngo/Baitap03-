@@ -25,11 +25,9 @@ public class Category implements Serializable {
     @Column(name = "status")
     private int status;
 
-    // --- Constructor không tham số ---
     public Category() {
     }
 
-    // --- Constructor có tham số ---
     public Category(int categoryid, String categoryname, String images, int status) {
         this.categoryid = categoryid;
         this.categoryname = categoryname;
@@ -37,7 +35,6 @@ public class Category implements Serializable {
         this.status = status;
     }
 
-    // --- Getter & Setter ---
     public int getCategoryid() {
         return categoryid;
     }

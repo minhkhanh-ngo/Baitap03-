@@ -25,11 +25,9 @@ public class User implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date createdDate;
 
-    // 1. Constructor không tham số (Bắt buộc phải có)
     public User() {
     }
 
-    // 2. Constructor nhận 8 tham số (Khớp với lúc gọi ở Service)
     public User(String email, String userName, String fullName, String password, String avatar, int roleid, String phone, Date createdDate) {
         this.email = email;
         this.userName = userName;
@@ -41,7 +39,6 @@ public class User implements Serializable {
         this.createdDate = createdDate;
     }
 
-    // Getter và Setter
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
     public String getEmail() { return email; }
