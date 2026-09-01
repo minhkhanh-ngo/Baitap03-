@@ -34,6 +34,9 @@ public class LoginController extends HttpServlet {
 
                     User user = userService.get(username);
                     if (user != null) {
+                        if (!user.isEnable()) {
+                            continue;
+                        }
                         session = req.getSession(true);
                         session.setAttribute("account", user);
                         resp.sendRedirect(req.getContextPath() + "/waiting");
@@ -70,6 +73,13 @@ public class LoginController extends HttpServlet {
 
         User user = userService.login(username, password);
         if (user != null) {
+            if (!user.isEnable()) {
+                alertMsg = "Tài khoản chưa được kích hoạt. Vui lòng kiểm tra email để nhận mã OTP!";
+                req.setAttribute("alert", alertMsg);
+                req.getRequestDispatcher("/views/login.jsp").forward(req, resp);
+                return;
+            }
+
             HttpSession session = req.getSession(true);
             session.setAttribute("account", user);
             if (isRememberMe) {

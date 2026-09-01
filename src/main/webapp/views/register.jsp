@@ -1,60 +1,55 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <title>Đăng ký tài khoản</title>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .register-container { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 350px; }
-        .register-container h2 { text-align: center; margin-bottom: 20px; color: #333; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; color: #666; font-size: 14px; }
-        .form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        .btn { width: 100%; padding: 10px; background: #28a745; border: none; color: white; border-radius: 4px; font-size: 16px; cursor: pointer; }
-        .btn:hover { background: #218838; }
-        .error { color: #dc3545; font-size: 14px; margin-bottom: 15px; text-align: center; }
-        .login-link { text-align: center; margin-top: 15px; font-size: 14px; }
-        .login-link a { color: #007bff; text-decoration: none; }
-        .login-link a:hover { text-decoration: underline; }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-<div class="register-container">
-    <h2>Đăng Ký Tài Khoản</h2>
+<body class="bg-light d-flex align-items-center justify-content-center py-5">
+<div class="card shadow p-4" style="width: 450px;">
+    <h3 class="text-center mb-3 fw-bold">Đăng ký tài khoản</h3>
 
     <c:if test="${not empty alert}">
-        <div class="error">${alert}</div>
+        <div class="alert alert-danger" role="alert">
+                ${alert}
+        </div>
     </c:if>
 
-    <form action="register" method="post">
-        <div class="form-group">
-            <label>Tài khoản (Username)</label>
-            <input type="text" name="username" required>
+    <form action="${pageContext.request.contextPath}/register" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Tài khoản</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Nhập tài khoản..." required>
         </div>
-        <div class="form-group">
-            <label>Mật khẩu (Password)</label>
-            <input type="password" name="password" required>
-        </div>
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" required>
-        </div>
-        <div class="form-group">
-            <label>Họ và tên</label>
-            <input type="text" name="fullname" required>
-        </div>
-        <div class="form-group">
-            <label>Số điện thoại</label>
-            <input type="text" name="phone">
-        </div>
-        <button type="submit" class="btn">Đăng Ký</button>
-    </form>
 
-    <div class="login-link">
-        Đã có tài khoản? <a href="login">Đăng nhập ngay</a>
-    </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Mật khẩu</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu..." required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email (nhận mã OTP)</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Nhập email của bạn..." required>
+        </div>
+
+        <div class="mb-3">
+            <label for="fullname" class="form-label">Họ và tên</label>
+            <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Nhập họ và tên..." required>
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Số điện thoại</label>
+            <input type="tel" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại...">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold mb-3">Đăng ký</button>
+
+        <div class="text-center">
+            <span>Đã có tài khoản? </span>
+            <a href="${pageContext.request.contextPath}/login" class="text-decoration-none">Đăng nhập ngay</a>
+        </div>
+    </form>
 </div>
 </body>
 </html>

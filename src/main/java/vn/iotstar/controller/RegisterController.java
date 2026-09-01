@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import vn.iotstar.service.UserService;
 import vn.iotstar.service.impl.UserServiceImpl;
+import vn.iotstar.util.EmailUtil;
 
 @WebServlet(urlPatterns = "/register")
 public class RegisterController extends HttpServlet {
@@ -20,9 +21,8 @@ public class RegisterController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
-        resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
 
         String username = req.getParameter("username");
         String password = req.getParameter("password");
@@ -31,18 +31,23 @@ public class RegisterController extends HttpServlet {
         String phone = req.getParameter("phone");
 
         UserService service = new UserServiceImpl();
-        boolean isExist = service.checkExistUsername(username);
-        if (isExist) {
+        if (service.checkExistUsername(username)) {
             req.setAttribute("alert", "Tài khoản đã tồn tại");
             req.getRequestDispatcher("/views/register.jsp").forward(req, resp);
             return;
         }
 
-        boolean isSuccess = service.register(username, password, email, fullname, phone);
+        String otp = String.format("%06d", new java.util.Random().nextInt(999999));
+
+        boolean isSuccess = service.registerWithOtp(username, password, email, fullname, phone, otp);
+
         if (isSuccess) {
-            resp.sendRedirect(req.getContextPath() + "/login");
+            EmailUtil.sendEmail(email, "Mã xác thực tài khoản", "Mã OTP của bạn là: " + otp);
+
+            req.getSession().setAttribute("verify_username", username);
+            resp.sendRedirect(req.getContextPath() + "/verify");
         } else {
-            req.setAttribute("alert", "System error!");
+            req.setAttribute("alert", "Lỗi hệ thống khi đăng ký!");
             req.getRequestDispatcher("/views/register.jsp").forward(req, resp);
         }
     }

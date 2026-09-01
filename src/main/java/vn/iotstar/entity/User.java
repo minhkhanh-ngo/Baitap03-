@@ -41,6 +41,12 @@ public class User implements Serializable {
     @Column(name = "createddate")
     private Date createdDate;
 
+    @Column(name ="isEnable")
+    private Boolean isEnable = false;
+
+    @Column(name="otp")
+    private String otp;
+
     public User() {
     }
 
@@ -73,4 +79,8 @@ public class User implements Serializable {
     public void setPhone(String phone) { this.phone = phone; }
     public Date getCreatedDate() { return createdDate; }
     public void setCreatedDate(Date createdDate) { this.createdDate = createdDate; }
+    public boolean isEnable() { return isEnable; }
+    public void setEnable(boolean enable) { isEnable = enable; }
+    public String getOtp() { return otp; }
+    public void setOtp(String otp) { this.otp = otp; }
 }

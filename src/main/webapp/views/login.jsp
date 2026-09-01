@@ -34,7 +34,13 @@
             <label class="form-check-label" for="remember">Nhớ tài khoản</label>
         </div>
 
-        <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">Đăng nhập</button>
+        <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold mb-3">Đăng nhập</button>
+
+        <!-- Thêm đường dẫn chuyển sang trang đăng ký -->
+        <div class="text-center">
+            <span>Chưa có tài khoản? </span>
+            <a href="${pageContext.request.contextPath}/register" class="text-decoration-none">Đăng ký ngay</a>
+        </div>
     </form>
 </div>
 </body>

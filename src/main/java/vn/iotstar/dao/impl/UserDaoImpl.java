@@ -53,6 +53,22 @@ public class UserDaoImpl implements UserDao {
             em.close();
         }
     }
+    @Override
+    public void update(User user) {
+        EntityManager em = JPAConfig.getEntityManager(); // Hoặc cách lấy EntityManager của bạn
+        try {
+            em.getTransaction().begin();
+            em.merge(user);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            if (em.getTransaction().isActive()) {
+                em.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
+    }
 
     @Override
     public boolean checkExistEmail(String email) {
