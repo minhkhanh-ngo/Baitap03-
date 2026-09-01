@@ -29,14 +29,16 @@
             <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu..." required>
         </div>
 
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="remember" name="remember">
-            <label class="form-check-label" for="remember">Nhớ tài khoản</label>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div class="form-check mb-0">
+                <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                <label class="form-check-label" for="remember">Nhớ tài khoản</label>
+            </div>
+            <a href="${pageContext.request.contextPath}/forgot-password" class="text-decoration-none">Quên mật khẩu?</a>
         </div>
 
         <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold mb-3">Đăng nhập</button>
 
-        <!-- Thêm đường dẫn chuyển sang trang đăng ký -->
         <div class="text-center">
             <span>Chưa có tài khoản? </span>
             <a href="${pageContext.request.contextPath}/register" class="text-decoration-none">Đăng ký ngay</a>

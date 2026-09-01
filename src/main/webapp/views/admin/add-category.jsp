@@ -19,13 +19,11 @@
 
                     <div class="mb-3">
                         <label for="categoryname" class="form-label">Tên danh mục:</label>
-                        <!-- Sửa name="name" thành name="categoryname" cho khớp với Entity -->
                         <input type="text" class="form-control" id="categoryname" name="categoryname" required placeholder="Nhập tên danh mục...">
                     </div>
 
                     <div class="mb-3">
                         <label for="images" class="form-label">Hình ảnh / Icon:</label>
-                        <!-- Sửa name="icon" thành name="images" cho khớp với thuộc tính images trong Entity và Controller -->
                         <input type="file" class="form-control" id="images" name="images">
                     </div>
 

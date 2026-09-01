@@ -5,9 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Trang quản trị Admin</title>
-    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome cho icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
@@ -45,7 +43,6 @@
 
 <div class="container-fluid">
     <div class="row">
-        <!-- Sidebar điều hướng bên trái -->
         <div class="col-md-3 col-lg-2 d-md-block sidebar collapse p-0">
             <div class="position-sticky pt-3">
                 <h5 class="text-center text-white pb-3 border-bottom border-secondary">ADMIN PANEL</h5>

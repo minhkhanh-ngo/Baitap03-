@@ -17,20 +17,16 @@
             <div class="card-body">
                 <form action="${pageContext.request.contextPath}/admin/category/edit" method="post" enctype="multipart/form-data">
 
-                    <!-- Sửa category.id thành category.categoryid -->
                     <input type="hidden" name="categoryid" value="${category.categoryid}">
-                    <!-- Sửa category.icon thành category.images -->
                     <input type="hidden" name="oldImages" value="${category.images}">
 
                     <div class="mb-3">
                         <label for="categoryname" class="form-label">Tên danh mục:</label>
-                        <!-- Sửa name và value từ name -> categoryname -->
                         <input type="text" class="form-control" id="categoryname" name="categoryname" value="${category.categoryname}" required>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Ảnh hiện tại:</label><br>
-                        <!-- Sửa category.icon thành category.images -->
                         <c:if test="${not empty category.images}">
                             <img src="${pageContext.request.contextPath}/image?fname=${category.images}" width="80" height="80" class="mb-2" style="object-fit: cover; border-radius: 5px;">
                         </c:if>
@@ -41,7 +37,6 @@
 
                     <div class="mb-3">
                         <label for="images" class="form-label">Đổi hình ảnh mới (nếu muốn):</label>
-                        <!-- Sửa name="icon" thành name="images" -->
                         <input type="file" class="form-control" id="images" name="images">
                     </div>
 

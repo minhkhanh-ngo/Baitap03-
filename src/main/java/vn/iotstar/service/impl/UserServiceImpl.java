@@ -110,4 +110,32 @@ public class UserServiceImpl implements UserService {
         }
         return false;
     }
+
+    @Override
+    public boolean updateOtpByEmail(String email, String otp) {
+        User user = userDao.getByEmail(email);
+        if (user != null) {
+            user.setOtp(otp);
+            userDao.update(user);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean resetPasswordByEmail(String email, String newPassword) {
+        User user = userDao.getByEmail(email);
+        if (user != null) {
+            user.setPassword(newPassword);
+            user.setOtp(null);
+            userDao.update(user);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public User getByEmail(String email) {
+        return userDao.getByEmail(email);
+    }
 }

@@ -9,4 +9,5 @@ public interface UserDao {
     boolean checkExistEmail(String email);
     boolean checkExistUsername(String username);
     boolean checkExistPhone(String phone);
+    User getByEmail(String email);
 }

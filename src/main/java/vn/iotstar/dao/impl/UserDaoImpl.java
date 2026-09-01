@@ -8,6 +8,7 @@ import vn.iotstar.dao.UserDao;
 import vn.iotstar.entity.User;
 import java.util.List;
 
+
 public class UserDaoImpl implements UserDao {
 
     private boolean checkExist(String field, String value) {
@@ -55,7 +56,7 @@ public class UserDaoImpl implements UserDao {
     }
     @Override
     public void update(User user) {
-        EntityManager em = JPAConfig.getEntityManager(); // Hoặc cách lấy EntityManager của bạn
+        EntityManager em = JPAConfig.getEntityManager();
         try {
             em.getTransaction().begin();
             em.merge(user);
@@ -83,5 +84,17 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean checkExistPhone(String phone) {
         return checkExist("phone", phone);
+    }
+
+    @Override
+    public User getByEmail(String email) {
+        EntityManager em = JPAConfig.getEntityManager();
+        try {
+            TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.email = :email", User.class);
+            query.setParameter("email", email);
+            return query.getResultStream().findFirst().orElse(null);
+        } finally {
+            em.close();
+        }
     }
 }
