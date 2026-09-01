@@ -6,23 +6,39 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "user")
+@Table(name = "[user]")
 public class User implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int id;
+
+    @Column(name = "email", length = 100)
     private String email;
+
+    @Column(name = "username", length = 50, nullable = false)
     private String userName;
+
+    @Column(name = "fullname", columnDefinition = "NVARCHAR(100)")
     private String fullName;
+
+    @Column(name = "password", length = 255, nullable = false)
     private String password;
+
+    @Column(name = "avatar", length = 500)
     private String avatar;
+
+    @Column(name = "roleid")
     private int roleid;
+
+    @Column(name = "phone", length = 15)
     private String phone;
 
     @Temporal(TemporalType.DATE)
+    @Column(name = "createddate")
     private Date createdDate;
 
     public User() {

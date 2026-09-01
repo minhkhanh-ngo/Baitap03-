@@ -1,4 +1,4 @@
-package vn.iotstar.configs;
+package vn.iotstar.config;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
