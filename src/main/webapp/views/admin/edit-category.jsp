@@ -21,8 +21,8 @@
                     <input type="hidden" name="oldImages" value="${category.images}">
 
                     <div class="mb-3">
-                        <label for="categoryname" class="form-label">Tên danh mục:</label>
-                        <input type="text" class="form-control" id="categoryname" name="categoryname" value="${category.categoryname}" required>
+                        <label for="cateName" class="form-label">Tên danh mục:</label>
+                        <input type="text" class="form-control" id="cateName" name="cateName" value="${category.cateName}" required>
                     </div>
 
                     <div class="mb-3">

@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Trang Chủ - UTE SHOP</title>
+    <title>Danh Sách Sản Phẩm - UTE SHOP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -12,23 +12,20 @@
     <div class="container-fluid">
         <a class="navbar-brand fw-bold text-primary" href="${pageContext.request.contextPath}/home">UTE SHOP</a>
         <div class="ms-auto d-flex align-items-center">
-            <span class="me-3">Xin chào: <strong>${sessionScope.account.fullName}</strong></span>
+            <a href="${pageContext.request.contextPath}/home" class="btn btn-outline-secondary btn-sm me-3">Về trang chủ</a>
             <a href="${pageContext.request.contextPath}/logout" class="btn btn-danger btn-sm">Đăng xuất</a>
         </div>
     </div>
 </nav>
 
 <div class="container">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3 class="fw-bold">10 Sản phẩm mới nhất</h3>
-        <a href="${pageContext.request.contextPath}/product" class="btn btn-outline-primary btn-sm">Xem tất cả sản phẩm</a>
-    </div>
+    <h3 class="fw-bold mb-4">Danh sách sản phẩm</h3>
 
     <div class="row">
-        <c:forEach items="${listNewProducts}" var="p">
-            <div class="col-md-3 mb-4">
+        <c:forEach items="${listProducts}" var="p">
+            <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm border-0">
-                    <img src="${p.imageUrl}" class="card-img-top" alt="..." style="height: 180px; object-fit: cover;">
+                    <img src="${p.imageUrl}" class="card-img-top" alt="..." style="height: 200px; object-fit: cover;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fs-6 fw-bold mb-2">${p.productName}</h5>
                         <p class="card-text text-danger fw-bold mb-1">${p.price} VNĐ</p>
@@ -39,6 +36,16 @@
             </div>
         </c:forEach>
     </div>
+
+    <nav aria-label="Page navigation" class="my-4">
+        <ul class="pagination justify-content-center">
+            <c:forEach begin="1" end="${endPage}" var="i">
+                <li class="page-item ${tag == i ? 'active' : ''}">
+                    <a class="page-link" href="${pageContext.request.contextPath}/product?page=${i}">${i}</a>
+                </li>
+            </c:forEach>
+        </ul>
+    </nav>
 </div>
 </body>
 </html>

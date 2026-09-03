@@ -114,13 +114,13 @@
                                                     </c:otherwise>
                                                 </c:choose>
                                             </td>
-                                            <td><span class="fw-bold text-dark">${cate.categoryname}</span></td>
+                                            <td><span class="fw-bold text-dark">${cate.cateName}</span></td>
                                             <td class="text-center">
                                                 <a href="${pageContext.request.contextPath}/admin/category/edit?id=${cate.categoryid}" class="btn btn-sm btn-outline-warning me-2 px-3 fw-semibold">
                                                     <i class="fa-solid fa-pen-to-square me-1"></i> Sửa
                                                 </a>
                                                 <a href="${pageContext.request.contextPath}/admin/category/delete?id=${cate.categoryid}"
-                                                   onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục [${cate.categoryname}] này không?');"
+                                                   onclick="return confirm('Bạn có chắc chắn muốn xóa danh mục [${cate.cateName}] này không?');"
                                                    class="btn btn-sm btn-outline-danger px-3 fw-semibold">
                                                     <i class="fa-solid fa-trash me-1"></i> Xóa
                                                 </a>

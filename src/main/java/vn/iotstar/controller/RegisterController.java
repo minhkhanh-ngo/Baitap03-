@@ -36,6 +36,11 @@ public class RegisterController extends HttpServlet {
             req.getRequestDispatcher("/views/register.jsp").forward(req, resp);
             return;
         }
+        if (service.checkExistEmail(email)) {
+            req.setAttribute("alert", "Email này đã được sử dụng bởi tài khoản khác");
+            req.getRequestDispatcher("/views/register.jsp").forward(req, resp);
+            return;
+        }
 
         String otp = String.format("%06d", new java.util.Random().nextInt(999999));
 

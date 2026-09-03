@@ -76,7 +76,7 @@ public class CategoryDaoImpl implements CategoryDao {
     @Override
     public Category findByCategoryname(String name) throws Exception {
         EntityManager enma = JPAConfig.getEntityManager();
-        String jpql = "SELECT c FROM Category c WHERE c.categoryname = :catename";
+        String jpql = "SELECT c FROM Category c WHERE c.cateName = :catename";
         try {
             TypedQuery<Category> query = enma.createQuery(jpql, Category.class);
             query.setParameter("catename", name);
@@ -100,7 +100,7 @@ public class CategoryDaoImpl implements CategoryDao {
     @Override
     public List<Category> searchByName(String catname) {
         EntityManager enma = JPAConfig.getEntityManager();
-        String jpql = "SELECT c FROM Category c WHERE c.categoryname LIKE :catname";
+        String jpql = "SELECT c FROM Category c WHERE c.cateName LIKE :catname";
         TypedQuery<Category> query = enma.createQuery(jpql, Category.class);
         query.setParameter("catname", "%" + catname + "%");
         return query.getResultList();

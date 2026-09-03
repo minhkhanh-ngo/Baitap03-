@@ -43,6 +43,7 @@
 
 <div class="container-fluid">
     <div class="row">
+        <!-- Sidebar -->
         <div class="col-md-3 col-lg-2 d-md-block sidebar collapse p-0">
             <div class="position-sticky pt-3">
                 <h5 class="text-center text-white pb-3 border-bottom border-secondary">ADMIN PANEL</h5>
@@ -58,6 +59,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a href="${pageContext.request.contextPath}/admin/product/list">
+                            <i class="fa-solid fa-box-open me-2"></i> Quản lý Sản phẩm
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="${pageContext.request.contextPath}/logout">
                             <i class="fa-solid fa-right-from-bracket me-2"></i> Đăng xuất
                         </a>
@@ -66,6 +72,7 @@
             </div>
         </div>
 
+        <!-- Main Content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2 fw-bold text-dark">Bảng điều khiển (Dashboard)</h1>
@@ -73,6 +80,7 @@
             </div>
 
             <div class="row g-4">
+                <!-- Card Quản lý Danh mục -->
                 <div class="col-md-6 col-xl-4">
                     <div class="card card-box bg-primary text-white shadow-sm p-3">
                         <div class="card-body">
@@ -92,6 +100,7 @@
                     </div>
                 </div>
 
+                <!-- Card Thêm Danh mục mới -->
                 <div class="col-md-6 col-xl-4">
                     <div class="card card-box bg-success text-white shadow-sm p-3">
                         <div class="card-body">
@@ -111,6 +120,27 @@
                     </div>
                 </div>
 
+                <!-- Card Thêm Sản phẩm mới -->
+                <div class="col-md-6 col-xl-4">
+                    <div class="card card-box bg-warning text-dark shadow-sm p-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title fw-bold">Thêm Sản phẩm mới</h5>
+                                    <p class="card-text small opacity-75">Đăng tải sản phẩm mới kèm hình ảnh lên Cloudinary.</p>
+                                </div>
+                                <i class="fa-solid fa-cart-plus fa-3x opacity-50"></i>
+                            </div>
+                            <div class="mt-4">
+                                <a href="${pageContext.request.contextPath}/admin/product-add" class="btn btn-dark btn-sm fw-semibold w-100">
+                                    Thêm sản phẩm <i class="fa-solid fa-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Hệ thống & Thống kê -->
                 <div class="col-md-6 col-xl-4">
                     <div class="card card-box bg-dark text-white shadow-sm p-3">
                         <div class="card-body">

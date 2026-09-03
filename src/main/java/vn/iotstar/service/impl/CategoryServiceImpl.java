@@ -12,7 +12,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void insert(Category category) {
         try {
-            Category cate = cateDao.findByCategoryname(category.getCategoryname());
+            Category cate = cateDao.findByCategoryname(category.getCateName());
             if (cate == null) {
                 cateDao.insert(category);
             }

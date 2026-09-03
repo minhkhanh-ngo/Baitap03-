@@ -17,7 +17,7 @@ public class Category implements Serializable {
 
     @Column(name = "cate_name", columnDefinition = "nvarchar(50) not null")
     @NotEmpty(message = "Không được phép rỗng")
-    private String categoryname;
+    private String cateName;
 
     @Column(name = "icons", columnDefinition = "nvarchar(500) null")
     private String images;
@@ -30,7 +30,7 @@ public class Category implements Serializable {
 
     public Category(int categoryid, String categoryname, String images, int status) {
         this.categoryid = categoryid;
-        this.categoryname = categoryname;
+        this.cateName = categoryname;
         this.images = images;
         this.status = status;
     }
@@ -43,12 +43,12 @@ public class Category implements Serializable {
         this.categoryid = categoryid;
     }
 
-    public String getCategoryname() {
-        return categoryname;
+    public String getCateName() {
+        return cateName;
     }
 
-    public void setCategoryname(String categoryname) {
-        this.categoryname = categoryname;
+    public void setCateName(String categoryname) {
+        this.cateName = categoryname;
     }
 
     public String getImages() {

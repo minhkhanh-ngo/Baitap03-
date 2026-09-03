@@ -32,7 +32,7 @@ public class CategoryAddController extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
 
-        String categoryname = req.getParameter("categoryname");
+        String cateName = req.getParameter("cateName");
 
         int status = 1;
         String statusStr = req.getParameter("status");
@@ -41,7 +41,7 @@ public class CategoryAddController extends HttpServlet {
         }
 
         Category category = new Category();
-        category.setCategoryname(categoryname);
+        category.setCateName(cateName);
         category.setStatus(status);
 
         String fname = "";

@@ -45,30 +45,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean register(String username, String password, String email, String fullname, String phone) {
-        if (checkExistUsername(username) || checkExistEmail(email) || checkExistPhone(phone)) {
-            return false;
-        }
-
-        User user = new User();
-        user.setUserName(username);
-        user.setPassword(password);
-        user.setEmail(email);
-        user.setFullName(fullname);
-        user.setPhone(phone);
-        user.setAvatar("default-avatar.png");
-        user.setRoleid(1);
-        user.setCreatedDate(new Date());
-
-        try {
-            userDao.insert(user);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    @Override
     public boolean registerWithOtp(String username, String password, String email, String fullname, String phone, String otp) {
         if (checkExistUsername(username) || checkExistEmail(email)) {
             return false;
@@ -81,13 +57,13 @@ public class UserServiceImpl implements UserService {
         user.setFullName(fullname);
         user.setPhone(phone);
         user.setAvatar("default-avatar.png");
-        user.setRoleid(1);
+        user.setRoleid(5);
         user.setCreatedDate(new Date());
-        user.setEnable(false); // Chưa kích hoạt tài khoản
-        user.setOtp(otp);      // Lưu mã OTP vào entity
+        user.setEnable(false);
+        user.setOtp(otp);
 
         try {
-            userDao.insert(user); // Lưu xuống database
+            userDao.insert(user);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

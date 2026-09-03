@@ -18,8 +18,8 @@
                 <form action="${pageContext.request.contextPath}/admin/category/add" method="post" enctype="multipart/form-data">
 
                     <div class="mb-3">
-                        <label for="categoryname" class="form-label">Tên danh mục:</label>
-                        <input type="text" class="form-control" id="categoryname" name="categoryname" required placeholder="Nhập tên danh mục...">
+                        <label for="cateName" class="form-label">Tên danh mục:</label>
+                        <input type="text" class="form-control" id="cateName" name="cateName" required placeholder="Nhập tên danh mục...">
                     </div>
 
                     <div class="mb-3">

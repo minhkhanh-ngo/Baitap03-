@@ -58,7 +58,7 @@ public class CategoryEditController extends HttpServlet {
                                     category.setCategoryid(Integer.parseInt(fieldValue));
                                 }
                             }
-                            case "categoryname" -> category.setCategoryname(fieldValue);
+                            case "cateName" -> category.setCateName(fieldValue);
                             case "status" -> {
                                 if (fieldValue != null && !fieldValue.isEmpty()) {
                                     category.setStatus(Integer.parseInt(fieldValue));
