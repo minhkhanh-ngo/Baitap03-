@@ -117,4 +117,71 @@ public class ProductDaoImpl implements ProductDao {
             em.close();
         }
     }
+
+    @Override
+    public List<Product> searchFilterAndSort(String keyword, Integer categoryId, String sort, int index, int pageSize) {
+        EntityManager em = JPAConfig.getEntityManager();
+        try {
+            StringBuilder jpql = new StringBuilder("SELECT p FROM Product p WHERE 1=1 ");
+
+            if (keyword != null && !keyword.trim().isEmpty()) {
+                jpql.append("AND p.productName LIKE :keyword ");
+            }
+            if (categoryId != null) {
+                jpql.append("AND p.category.categoryid = :categoryId ");
+            }
+
+            if ("priceAsc".equals(sort)) {
+                jpql.append("ORDER BY p.price ASC ");
+            } else if ("priceDesc".equals(sort)) {
+                jpql.append("ORDER BY p.price DESC ");
+            } else {
+                jpql.append("ORDER BY p.productId DESC ");
+            }
+
+            TypedQuery<Product> query = em.createQuery(jpql.toString(), Product.class);
+
+            if (keyword != null && !keyword.trim().isEmpty()) {
+                query.setParameter("keyword", "%" + keyword.trim() + "%");
+            }
+            if (categoryId != null) {
+                query.setParameter("categoryId", categoryId);
+            }
+
+            query.setFirstResult((index - 1) * pageSize);
+            query.setMaxResults(pageSize);
+
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public int countSearchFilter(String keyword, Integer categoryId) {
+        EntityManager em = JPAConfig.getEntityManager();
+        try {
+            StringBuilder jpql = new StringBuilder("SELECT COUNT(p) FROM Product p WHERE 1=1 ");
+
+            if (keyword != null && !keyword.trim().isEmpty()) {
+                jpql.append("AND p.productName LIKE :keyword ");
+            }
+            if (categoryId != null) {
+                jpql.append("AND p.category.categoryid = :categoryId ");
+            }
+
+            TypedQuery<Long> query = em.createQuery(jpql.toString(), Long.class);
+
+            if (keyword != null && !keyword.trim().isEmpty()) {
+                query.setParameter("keyword", "%" + keyword.trim() + "%");
+            }
+            if (categoryId != null) {
+                query.setParameter("categoryId", categoryId);
+            }
+
+            return query.getSingleResult().intValue();
+        } finally {
+            em.close();
+        }
+    }
 }

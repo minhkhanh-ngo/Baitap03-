@@ -76,6 +76,17 @@ GO
 
 -- Thêm dữ liệu mẫu cho Products (Đã tích hợp link Cloudinary chính chủ)
 INSERT INTO dbo.products (product_name, price, quantity, description, image_url, category_id) VALUES
+(N'Tai nghe Bluetooth TWS', 450000, 40, N'Tai nghe không dây âm thanh HIFI.', 'https://placehold.co/400x400/e9c46a/black?text=Tai+Nghe', 2),
+(N'Sạc dự phòng 10000mAh', 299000, 100, N'Sạc dự phòng nhỏ gọn, sạc nhanh.', 'https://placehold.co/400x400/e9c46a/black?text=Sac+Du+Phong', 2),
+(N'Bàn phím cơ Gaming', 850000, 25, N'Bàn phím cơ Red Switch, LED RGB.', 'https://placehold.co/400x400/e9c46a/black?text=Ban+Phim', 2),
+(N'Chuột không dây Silent', 150000, 60, N'Chuột click chống ồn, độ nhạy cao.', 'https://placehold.co/400x400/e9c46a/black?text=Chuot+Khong+Day', 2),
+
+-- Danh mục 3: Phụ Kiện Thời Trang
+(N'Đồng hồ nam dây da', 550000, 20, N'Đồng hồ cơ nam tính, mặt kính sapphire.', 'https://placehold.co/400x400/e76f51/white?text=Dong+Ho', 3),
+(N'Mắt kính râm phân cực', 250000, 45, N'Kính mát chống tia UV400.', 'https://placehold.co/400x400/e76f51/white?text=Mat+Kinh', 3),
+(N'Thắt lưng nam da bò', 320000, 50, N'Thắt lưng da thật 100%.', 'https://placehold.co/400x400/e76f51/white?text=That+Lung', 3),
+(N'Ví da nam dáng đứng', 199000, 70, N'Ví da nam nhiều ngăn đựng thẻ.', 'https://placehold.co/400x400/e76f51/white?text=Vi+Da', 3);
+GO
 (N'Áo Polo Nam Basic', 249000, 50, N'Áo polo nam chất liệu cotton thoáng mát, thiết kế lịch lãm.', 'https://res.cloudinary.com/yc31bvxm/image/upload/v1788427240/nkvuiq3aehgj5tmd1wzj.jpg', 1),
 (N'Áo Sơ Mi Nam Công Sở', 329000, 30, N'Áo sơ mi nam dài tay, chống nhăn, form dáng chuẩn.', 'https://res.cloudinary.com/yc31bvxm/image/upload/v1788427242/xb6pmch0euk6jxtn0msd.jpg', 1),
 (N'Áo Thun Nam Cotton', 179000, 100, N'Áo thun ngắn tay năng động, thấm hút mồ hôi tốt.', 'https://res.cloudinary.com/yc31bvxm/image/upload/v1788427243/c5cttslqienutgglpaul.jpg', 1),
@@ -86,4 +97,5 @@ INSERT INTO dbo.products (product_name, price, quantity, description, image_url,
 (N'Quần Short Kaki Nam', 199000, 60, N'Quần short ngắn năng động cho mùa hè, thoải mái vận động.', 'https://res.cloudinary.com/yc31bvxm/image/upload/v1788427250/t4n401ljclmpgbuhzu4w.jpg', 1),
 (N'Áo Blazer Nam Hàn Quốc', 690000, 15, N'Áo khoác blazer lịch sự, thích hợp đi tiệc hoặc đi làm.', 'https://res.cloudinary.com/yc31bvxm/image/upload/v1788427251/sm2pxj6k8g9zylxnea54.jpg', 1),
 (N'Áo Khoác Dù Chống Nắng', 299000, 45, N'Áo dù mỏng nhẹ, chống tia UV, tiện lợi khi di chuyển ngoài đường.', 'https://res.cloudinary.com/yc31bvxm/image/upload/v1788427253/upn7y3nsug31d14ruioy.jpg', 1);
+
 GO

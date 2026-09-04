@@ -49,4 +49,14 @@ public class ProductServiceImpl implements ProductService {
     public int countAll() {
         return productDao.countAll();
     }
+
+    @Override
+    public List<Product> searchFilterAndSort(String keyword, Integer categoryId, String sort, int index, int pageSize) {
+        return productDao.searchFilterAndSort(keyword, categoryId, sort, index, pageSize);
+    }
+
+    @Override
+    public int countSearchFilter(String keyword, Integer categoryId) {
+        return productDao.countSearchFilter(keyword, categoryId);
+    }
 }

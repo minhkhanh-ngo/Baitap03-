@@ -20,7 +20,7 @@
 </nav>
 
 <div class="container">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-4 mt-2">
         <h3 class="fw-bold">10 Sản phẩm mới nhất</h3>
         <a href="${pageContext.request.contextPath}/product" class="btn btn-outline-primary btn-sm">Xem tất cả sản phẩm</a>
     </div>
@@ -32,11 +32,9 @@
                     <img src="${p.imageUrl}" class="card-img-top" alt="..." style="height: 180px; object-fit: cover;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fs-6 fw-bold mb-2">${p.productName}</h5>
-
                         <p class="card-text text-danger fw-bold mb-1">
                             <fmt:formatNumber value="${p.price}" type="number" groupingUsed="true"/> đ
                         </p>
-
                         <p class="card-text text-muted small mb-3">${p.category.cateName}</p>
                         <a href="${pageContext.request.contextPath}/product-detail?id=${p.productId}" class="btn btn-primary btn-sm mt-auto w-100">Xem chi tiết</a>
                     </div>

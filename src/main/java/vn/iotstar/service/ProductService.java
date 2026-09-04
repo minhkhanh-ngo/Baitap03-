@@ -12,4 +12,6 @@ public interface ProductService {
     List<Product> findTop10Newest();
     List<Product> findAllPaginated(int offset, int limit);
     int countAll();
+    List<Product> searchFilterAndSort(String keyword, Integer categoryId, String sort, int index, int pageSize);
+    int countSearchFilter(String keyword, Integer categoryId);
 }
