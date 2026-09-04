@@ -43,7 +43,6 @@
 
 <div class="container-fluid">
     <div class="row">
-        <!-- Sidebar -->
         <div class="col-md-3 col-lg-2 d-md-block sidebar collapse p-0">
             <div class="position-sticky pt-3">
                 <h5 class="text-center text-white pb-3 border-bottom border-secondary">ADMIN PANEL</h5>
@@ -72,7 +71,6 @@
             </div>
         </div>
 
-        <!-- Main Content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2 fw-bold text-dark">Bảng điều khiển (Dashboard)</h1>
@@ -80,18 +78,17 @@
             </div>
 
             <div class="row g-4">
-                <!-- Card Quản lý Danh mục -->
-                <div class="col-md-6 col-xl-4">
-                    <div class="card card-box bg-primary text-white shadow-sm p-3">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
+                <div class="col-md-6 col-xl-3">
+                    <div class="card card-box bg-primary text-white shadow-sm p-3 h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
                                     <h5 class="card-title fw-bold">Quản lý Danh mục</h5>
-                                    <p class="card-text small opacity-75">Xem, Thêm, Sửa, Xóa và tìm kiếm danh mục sản phẩm.</p>
+                                    <p class="card-text small opacity-75">Xem, Sửa, Xóa danh mục.</p>
                                 </div>
                                 <i class="fa-solid fa-folder-open fa-3x opacity-50"></i>
                             </div>
-                            <div class="mt-4">
+                            <div class="mt-auto">
                                 <a href="${pageContext.request.contextPath}/admin/category/list" class="btn btn-light btn-sm fw-semibold w-100 text-primary">
                                     Truy cập <i class="fa-solid fa-arrow-right ms-1"></i>
                                 </a>
@@ -100,19 +97,18 @@
                     </div>
                 </div>
 
-                <!-- Card Thêm Danh mục mới -->
-                <div class="col-md-6 col-xl-4">
-                    <div class="card card-box bg-success text-white shadow-sm p-3">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
+                <div class="col-md-6 col-xl-3">
+                    <div class="card card-box bg-info text-white shadow-sm p-3 h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
-                                    <h5 class="card-title fw-bold">Thêm Danh mục mới</h5>
-                                    <p class="card-text small opacity-75">Tạo nhanh danh mục sản phẩm hoặc icon mới vào hệ thống.</p>
+                                    <h5 class="card-title fw-bold">Thêm Danh mục</h5>
+                                    <p class="card-text small opacity-75">Tạo danh mục sản phẩm mới.</p>
                                 </div>
                                 <i class="fa-solid fa-square-plus fa-3x opacity-50"></i>
                             </div>
-                            <div class="mt-4">
-                                <a href="${pageContext.request.contextPath}/admin/category/add" class="btn btn-light btn-sm fw-semibold w-100 text-success">
+                            <div class="mt-auto">
+                                <a href="${pageContext.request.contextPath}/admin/category/add" class="btn btn-light btn-sm fw-semibold w-100 text-info">
                                     Thêm ngay <i class="fa-solid fa-arrow-right ms-1"></i>
                                 </a>
                             </div>
@@ -120,41 +116,39 @@
                     </div>
                 </div>
 
-                <!-- Card Thêm Sản phẩm mới -->
-                <div class="col-md-6 col-xl-4">
-                    <div class="card card-box bg-warning text-dark shadow-sm p-3">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
+                <div class="col-md-6 col-xl-3">
+                    <div class="card card-box bg-success text-white shadow-sm p-3 h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
-                                    <h5 class="card-title fw-bold">Thêm Sản phẩm mới</h5>
-                                    <p class="card-text small opacity-75">Đăng tải sản phẩm mới kèm hình ảnh lên Cloudinary.</p>
+                                    <h5 class="card-title fw-bold">Quản lý Sản phẩm</h5>
+                                    <p class="card-text small opacity-75">Xem, Sửa, Xóa sản phẩm.</p>
                                 </div>
-                                <i class="fa-solid fa-cart-plus fa-3x opacity-50"></i>
+                                <i class="fa-solid fa-box-open fa-3x opacity-50"></i>
                             </div>
-                            <div class="mt-4">
-                                <a href="${pageContext.request.contextPath}/admin/product-add" class="btn btn-dark btn-sm fw-semibold w-100">
-                                    Thêm sản phẩm <i class="fa-solid fa-arrow-right ms-1"></i>
+                            <div class="mt-auto">
+                                <a href="${pageContext.request.contextPath}/admin/product/list" class="btn btn-light btn-sm fw-semibold w-100 text-success">
+                                    Truy cập <i class="fa-solid fa-arrow-right ms-1"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Card Hệ thống & Thống kê -->
-                <div class="col-md-6 col-xl-4">
-                    <div class="card card-box bg-dark text-white shadow-sm p-3">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
+                <div class="col-md-6 col-xl-3">
+                    <div class="card card-box bg-warning text-white shadow-sm p-3 h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-start mb-3">
                                 <div>
-                                    <h5 class="card-title fw-bold">Hệ thống & Thống kê</h5>
-                                    <p class="card-text small opacity-75">Kiểm tra thông tin tài khoản và cấu hình hệ thống.</p>
+                                    <h5 class="card-title fw-bold">Thêm Sản phẩm</h5>
+                                    <p class="card-text small opacity-75">Đăng tải sản phẩm lên hệ thống.</p>
                                 </div>
-                                <i class="fa-solid fa-gears fa-3x opacity-50"></i>
+                                <i class="fa-solid fa-cart-plus fa-3x opacity-50"></i>
                             </div>
-                            <div class="mt-4">
-                                <button class="btn btn-outline-light btn-sm fw-semibold w-100" disabled>
-                                    Đang phát triển
-                                </button>
+                            <div class="mt-auto">
+                                <a href="${pageContext.request.contextPath}/admin/product-add" class="btn btn-light btn-sm fw-semibold w-100 text-warning">
+                                    Thêm ngay <i class="fa-solid fa-arrow-right ms-1"></i>
+                                </a>
                             </div>
                         </div>
                     </div>

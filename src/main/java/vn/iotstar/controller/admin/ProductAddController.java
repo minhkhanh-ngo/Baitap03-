@@ -2,6 +2,7 @@ package vn.iotstar.controller.admin;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -16,6 +17,9 @@ import vn.iotstar.service.ProductService;
 import vn.iotstar.service.impl.CategoryServiceImpl;
 import vn.iotstar.service.impl.ProductServiceImpl;
 import vn.iotstar.util.CloudinaryUtil;
+import vn.iotstar.config.CloudinaryConfig;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 
 @MultipartConfig(
         fileSizeThreshold = 1024 * 1024 * 2,
@@ -46,13 +50,31 @@ public class ProductAddController extends HttpServlet {
         int quantity = Integer.parseInt(req.getParameter("quantity"));
         int categoryId = Integer.parseInt(req.getParameter("categoryId"));
 
+        String description = req.getParameter("description");
+        String imageLink = req.getParameter("imageLink");
+
         Part filePart = req.getPart("imageFile");
-        String imageUrl = CloudinaryUtil.uploadImage(filePart);
+        String imageUrl = "";
+
+        if (filePart != null && filePart.getSize() > 0) {
+            imageUrl = CloudinaryUtil.uploadImage(filePart);
+        }
+        else if (imageLink != null && imageLink.startsWith("http")) {
+            try {
+                Cloudinary cloudinary = CloudinaryConfig.getCloudinary();
+                Map uploadResult = cloudinary.uploader().upload(imageLink, ObjectUtils.emptyMap());
+                imageUrl = (String) uploadResult.get("secure_url");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
         Product product = new Product();
         product.setProductName(productName);
         product.setPrice(price);
         product.setQuantity(quantity);
+        product.setDescription(description);
+
         product.setImageUrl(imageUrl);
 
         Category category = new Category();

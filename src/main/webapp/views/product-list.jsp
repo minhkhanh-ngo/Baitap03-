@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,12 @@
                     <img src="${p.imageUrl}" class="card-img-top" alt="..." style="height: 200px; object-fit: cover;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title fs-6 fw-bold mb-2">${p.productName}</h5>
-                        <p class="card-text text-danger fw-bold mb-1">${p.price} VNĐ</p>
+
+                        <!-- Đã định dạng giá tiền chuẩn VND -->
+                        <p class="card-text text-danger fw-bold mb-1">
+                            <fmt:formatNumber value="${p.price}" type="number" groupingUsed="true"/> đ
+                        </p>
+
                         <p class="card-text text-muted small mb-3">${p.category.cateName}</p>
                         <a href="${pageContext.request.contextPath}/product-detail?id=${p.productId}" class="btn btn-primary btn-sm mt-auto w-100">Xem chi tiết</a>
                     </div>
